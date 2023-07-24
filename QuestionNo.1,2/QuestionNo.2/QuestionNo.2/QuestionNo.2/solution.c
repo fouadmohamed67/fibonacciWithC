@@ -15,23 +15,40 @@ int fibonacci1(int n) {
 int fibonacci2(int n) {
     
     int *tempArr;
-    tempArr = (int*)malloc(n+1 * sizeof(int)); 
+    tempArr = (int*)malloc(n * sizeof(int)); 
+    for (int i = 0; i < 3; i++)
+    {
+        tempArr[i] = i;
+    }
+    for (int x = 3; x <= n; x++)
+    {
+        tempArr[x] = tempArr[x - 3] + tempArr[x - 2];
+    }
+    return tempArr[n];
 
+}
+int fibonacci3(int n) {
     if (n < 3) {
         return n;
     }
-    else if (tempArr[n] != 0) {
-        return tempArr[n];
-    }
-    else {
-        tempArr[n] = fibonacci2(n - 3) + fibonacci2(n - 2);
-        return tempArr[n];
-    }
+    int fib_n_minus_3 = 0;
+    int fib_n_minus_2 = 1;
+
+    int fiboN = 0; 
+    for (int i = 3; i <= n; i++) {
+        fiboN = fib_n_minus_3 + fib_n_minus_2  ;//1
+        fib_n_minus_3 = fib_n_minus_2;//1
+        fib_n_minus_2 = fiboN;
+      
+    } 
+    return fiboN;
 }
 int main() {
-    int output1 = fibonacci1(6);
+    int output1 = fibonacci1(3);
     printf("output1=: %d\n", output1);
-    int output2 = fibonacci2(6);
+    int output2 = fibonacci2(3);
     printf("output2=: %d\n", output2);
+    int output3 = fibonacci3(3);
+    printf("output3=: %d\n", output3);
 
 }
