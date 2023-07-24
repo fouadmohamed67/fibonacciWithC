@@ -1,5 +1,5 @@
-#include <stdio.h> 
-#include <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h> 
 
 int fibonacci1(int n) {
     if (n == 0) {
@@ -12,8 +12,9 @@ int fibonacci1(int n) {
         return fibonacci1(n - 3) + fibonacci1(n - 2);
     }
 }
+
 int main() {
-  
-   int x = fibonacci1(6);
-    printf("output from fibonacci1 =: %d\n", x);
+    int x = fibonacci1(4);
+    printf("output1=: %d\n", x);
+
 }
