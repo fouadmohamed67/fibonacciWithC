@@ -13,7 +13,9 @@ int fibonacci1(int n) {
     }
 }
 int fibonacci2(int n) {
-    static int tempArr[1000];
+    
+    int *tempArr;
+    tempArr = (int*)malloc(n+1 * sizeof(int)); 
 
     if (n < 3) {
         return n;
