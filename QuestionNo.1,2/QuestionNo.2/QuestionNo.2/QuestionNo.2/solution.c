@@ -12,9 +12,24 @@ int fibonacci1(int n) {
         return fibonacci1(n - 3) + fibonacci1(n - 2);
     }
 }
+int fibonacci2(int n) {
+    static int tempArr[1000];
 
+    if (n < 3) {
+        return n;
+    }
+    else if (tempArr[n] != 0) {
+        return tempArr[n];
+    }
+    else {
+        tempArr[n] = fibonacci2(n - 3) + fibonacci2(n - 2);
+        return tempArr[n];
+    }
+}
 int main() {
-    int x = fibonacci1(4);
-    printf("output1=: %d\n", x);
+    int output1 = fibonacci1(6);
+    printf("output1=: %d\n", output1);
+    int output2 = fibonacci2(6);
+    printf("output2=: %d\n", output2);
 
 }
