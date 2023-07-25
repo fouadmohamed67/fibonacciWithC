@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 typedef enum TypeTag {
-    add,
-    sub,
-    mul,
+    ADD,
+    SUB,
+    MUL,
 } TypeTag;
 
 typedef struct Node {
@@ -13,14 +13,19 @@ typedef struct Node {
     struct Node* next;
 } Node;
 
-Node* makeFunc(TypeTag op) {
+// Function prototypes
+Node* addFunc(int a, int b);
+Node* subFunc(int a, int b);
+Node* mulFunc(int a, int b);
+
+Node* makeFunc(TypeTag op, Node *a, Node *b) {
     switch (op) {
-    case add:
-        return addFunc;
-    case sub:
-        return subFunc;
-    case mul:
-        return mulFunc;
+    case ADD: 
+        return addFunc(a->data, b->data);  
+    case SUB: 
+        return subFunc(a->data, b->data);
+    case MUL: 
+        return mulFunc(a->data, b->data);
     default:
         return NULL;
     }
@@ -28,7 +33,7 @@ Node* makeFunc(TypeTag op) {
 
 Node* addFunc(int a, int b) {
     Node* node = (Node*)malloc(sizeof(Node));
-    node->type = add;
+    node->type = ADD;
     node->data = a + b;
     node->next = NULL;
     return node;
@@ -36,7 +41,7 @@ Node* addFunc(int a, int b) {
 
 Node* subFunc(int a, int b) {
     Node* node = (Node*)malloc(sizeof(Node));
-    node->type = sub;
+    node->type = SUB;
     node->data = a - b;
     node->next = NULL;
     return node;
@@ -44,15 +49,25 @@ Node* subFunc(int a, int b) {
 
 Node* mulFunc(int a, int b) {
     Node* node = (Node*)malloc(sizeof(Node));
-    node->type = mul;
+    node->type = MUL;
     node->data = a * b;
     node->next = NULL;
     return node;
 }
 
 int main() {
-    Node* add = (*makeFunc(add))(10, 6);
+    Node* d1= (Node*)malloc(sizeof(Node));
+    d1->data = 10;
+    Node* d2 = (Node*)malloc(sizeof(Node));
+    d2->data = 6;
+
+    Node* add = makeFunc(ADD, d1, d2);
+    Node* mul = makeFunc(MUL, d1, d2);
+    Node* sub = makeFunc(SUB, mul, add);
     printf("add: %d\n", add->data);
+    printf("mul: %d\n", mul->data);
+    printf("sub: %d\n", sub->data); 
+
     free(add);
     return 0;
 }
