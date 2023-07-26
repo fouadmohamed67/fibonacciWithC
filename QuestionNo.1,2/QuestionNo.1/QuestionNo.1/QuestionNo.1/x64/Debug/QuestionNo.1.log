@@ -1,2 +1,8 @@
 ﻿  solution.c
+D:\fibonacciWithC\QuestionNo.1,2\QuestionNo.1\QuestionNo.1\QuestionNo.1\solution.c(31,25): warning C4013: 'fibFun' undefined; assuming extern returning int
+D:\fibonacciWithC\QuestionNo.1,2\QuestionNo.1\QuestionNo.1\QuestionNo.1\solution.c(77,50): warning C4098: 'calc': 'void' function returning a value
+D:\fibonacciWithC\QuestionNo.1,2\QuestionNo.1\QuestionNo.1\QuestionNo.1\solution.c(79,49): warning C4098: 'calc': 'void' function returning a value
+D:\fibonacciWithC\QuestionNo.1,2\QuestionNo.1\QuestionNo.1\QuestionNo.1\solution.c(81,49): warning C4098: 'calc': 'void' function returning a value
+D:\fibonacciWithC\QuestionNo.1,2\QuestionNo.1\QuestionNo.1\QuestionNo.1\solution.c(83,50): warning C4098: 'calc': 'void' function returning a value
+D:\fibonacciWithC\QuestionNo.1,2\QuestionNo.1\QuestionNo.1\QuestionNo.1\solution.c(86,20): warning C4098: 'calc': 'void' function returning a value
   QuestionNo.1.vcxproj -> D:\fibonacciWithC\QuestionNo.1,2\QuestionNo.1\QuestionNo.1\x64\Debug\QuestionNo.1.exe
